@@ -1,0 +1,88 @@
+[2023-10-23T11:09:58.843+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [queued]>
+[2023-10-23T11:09:58.855+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [queued]>
+[2023-10-23T11:09:58.856+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-10-23T11:09:58.872+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): fetch_and_save_to_local_task> on 2023-10-22 00:00:00+00:00
+[2023-10-23T11:09:58.884+0000] {standard_task_runner.py:57} INFO - Started process 119 to run task
+[2023-10-23T11:09:58.897+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'once_ingestion_gcs_dag', 'fetch_and_save_to_local_task', 'scheduled__2023-10-22T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/once_ingest_data_to_gcs_dag.py', '--cfg-path', '/tmp/tmp4is1yxel']
+[2023-10-23T11:09:58.904+0000] {standard_task_runner.py:85} INFO - Job 3: Subtask fetch_and_save_to_local_task
+[2023-10-23T11:09:59.010+0000] {task_command.py:416} INFO - Running <TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [running]> on host 32cec2208197
+[2023-10-23T11:09:59.118+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='once_ingestion_gcs_dag' AIRFLOW_CTX_TASK_ID='fetch_and_save_to_local_task' AIRFLOW_CTX_EXECUTION_DATE='2023-10-22T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-22T00:00:00+00:00'
+[2023-10-23T11:09:59.122+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/fetch_and_save_data.py", line 51, in fetch_all_and_save
+    os.makedir(path)
+AttributeError: module 'os' has no attribute 'makedir'
+[2023-10-23T11:09:59.136+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=once_ingestion_gcs_dag, task_id=fetch_and_save_to_local_task, execution_date=20231022T000000, start_date=20231023T110958, end_date=20231023T110959
+[2023-10-23T11:09:59.155+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 3 for task fetch_and_save_to_local_task (module 'os' has no attribute 'makedir'; 119)
+[2023-10-23T11:09:59.189+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-10-23T11:09:59.225+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-10-23T11:21:09.224+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [queued]>
+[2023-10-23T11:21:09.254+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [queued]>
+[2023-10-23T11:21:09.255+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-10-23T11:21:09.285+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): fetch_and_save_to_local_task> on 2023-10-22 00:00:00+00:00
+[2023-10-23T11:21:09.298+0000] {standard_task_runner.py:57} INFO - Started process 78 to run task
+[2023-10-23T11:21:09.325+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'once_ingestion_gcs_dag', 'fetch_and_save_to_local_task', 'scheduled__2023-10-22T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/once_ingest_data_to_gcs_dag.py', '--cfg-path', '/tmp/tmpi3tw57wn']
+[2023-10-23T11:21:09.332+0000] {standard_task_runner.py:85} INFO - Job 6: Subtask fetch_and_save_to_local_task
+[2023-10-23T11:21:09.458+0000] {task_command.py:416} INFO - Running <TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [running]> on host dae8ee1df0d7
+[2023-10-23T11:21:09.652+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='once_ingestion_gcs_dag' AIRFLOW_CTX_TASK_ID='fetch_and_save_to_local_task' AIRFLOW_CTX_EXECUTION_DATE='2023-10-22T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-22T00:00:00+00:00'
+[2023-10-23T11:26:57.973+0000] {local_task_job_runner.py:294} WARNING - State of this instance has been externally set to restarting. Terminating instance.
+[2023-10-23T11:26:57.978+0000] {process_utils.py:131} INFO - Sending 15 to group 78. PIDs of all processes in the group: [78]
+[2023-10-23T11:26:57.978+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 78
+[2023-10-23T11:26:57.979+0000] {taskinstance.py:1632} ERROR - Received SIGTERM. Terminating subprocesses.
+[2023-10-23T11:26:57.992+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/fetch_and_save_data.py", line 55, in fetch_all_and_save
+    sleep(10)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1634, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2023-10-23T11:26:57.997+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=once_ingestion_gcs_dag, task_id=fetch_and_save_to_local_task, execution_date=20231022T000000, start_date=20231023T112109, end_date=20231023T112657
+[2023-10-23T11:26:58.015+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 6 for task fetch_and_save_to_local_task (Task received SIGTERM signal; 78)
+[2023-10-23T11:26:58.073+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=78, status='terminated', exitcode=1, started='11:21:08') (78) terminated with exit code 1
+[2023-10-23T11:31:05.422+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [queued]>
+[2023-10-23T11:31:05.438+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [queued]>
+[2023-10-23T11:31:05.438+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-10-23T11:31:05.458+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): fetch_and_save_to_local_task> on 2023-10-22 00:00:00+00:00
+[2023-10-23T11:31:05.468+0000] {standard_task_runner.py:57} INFO - Started process 79 to run task
+[2023-10-23T11:31:05.476+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'once_ingestion_gcs_dag', 'fetch_and_save_to_local_task', 'scheduled__2023-10-22T00:00:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/once_ingest_data_to_gcs_dag.py', '--cfg-path', '/tmp/tmpk5j8llxm']
+[2023-10-23T11:31:05.481+0000] {standard_task_runner.py:85} INFO - Job 9: Subtask fetch_and_save_to_local_task
+[2023-10-23T11:31:05.555+0000] {task_command.py:416} INFO - Running <TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [running]> on host f3bb9335c956
+[2023-10-23T11:31:05.663+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='once_ingestion_gcs_dag' AIRFLOW_CTX_TASK_ID='fetch_and_save_to_local_task' AIRFLOW_CTX_EXECUTION_DATE='2023-10-22T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-22T00:00:00+00:00'
+[2023-10-23T11:43:21.212+0000] {python.py:194} INFO - Done. Returned value was: None
+[2023-10-23T11:43:21.225+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=once_ingestion_gcs_dag, task_id=fetch_and_save_to_local_task, execution_date=20231022T000000, start_date=20231023T113105, end_date=20231023T114321
+[2023-10-23T11:43:21.272+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-10-23T11:43:21.308+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2023-10-23T12:31:13.021+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [queued]>
+[2023-10-23T12:31:13.036+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [queued]>
+[2023-10-23T12:31:13.036+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-10-23T12:31:13.055+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): fetch_and_save_to_local_task> on 2023-10-22 00:00:00+00:00
+[2023-10-23T12:31:13.064+0000] {standard_task_runner.py:57} INFO - Started process 77 to run task
+[2023-10-23T12:31:13.071+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'once_ingestion_gcs_dag', 'fetch_and_save_to_local_task', 'scheduled__2023-10-22T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/once_ingest_data_to_gcs_dag.py', '--cfg-path', '/tmp/tmp9s7i8hq6']
+[2023-10-23T12:31:13.076+0000] {standard_task_runner.py:85} INFO - Job 3: Subtask fetch_and_save_to_local_task
+[2023-10-23T12:31:13.144+0000] {task_command.py:416} INFO - Running <TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [running]> on host c698a5494e22
+[2023-10-23T12:31:13.247+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='once_ingestion_gcs_dag' AIRFLOW_CTX_TASK_ID='fetch_and_save_to_local_task' AIRFLOW_CTX_EXECUTION_DATE='2023-10-22T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-22T00:00:00+00:00'
+[2023-10-23T12:36:42.137+0000] {python.py:194} INFO - Done. Returned value was: None
+[2023-10-23T12:36:42.151+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=once_ingestion_gcs_dag, task_id=fetch_and_save_to_local_task, execution_date=20231022T000000, start_date=20231023T123113, end_date=20231023T123642
+[2023-10-23T12:36:42.203+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-10-23T12:36:42.239+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2023-10-23T13:11:50.206+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [queued]>
+[2023-10-23T13:11:50.219+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [queued]>
+[2023-10-23T13:11:50.220+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-10-23T13:11:50.239+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): fetch_and_save_to_local_task> on 2023-10-22 00:00:00+00:00
+[2023-10-23T13:11:50.247+0000] {standard_task_runner.py:57} INFO - Started process 94 to run task
+[2023-10-23T13:11:50.254+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'once_ingestion_gcs_dag', 'fetch_and_save_to_local_task', 'scheduled__2023-10-22T00:00:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/once_ingest_data_to_gcs_dag.py', '--cfg-path', '/tmp/tmpp65bd27l']
+[2023-10-23T13:11:50.259+0000] {standard_task_runner.py:85} INFO - Job 9: Subtask fetch_and_save_to_local_task
+[2023-10-23T13:11:50.327+0000] {task_command.py:416} INFO - Running <TaskInstance: once_ingestion_gcs_dag.fetch_and_save_to_local_task scheduled__2023-10-22T00:00:00+00:00 [running]> on host 913d4cde6d10
+[2023-10-23T13:11:50.465+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='once_ingestion_gcs_dag' AIRFLOW_CTX_TASK_ID='fetch_and_save_to_local_task' AIRFLOW_CTX_EXECUTION_DATE='2023-10-22T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-22T00:00:00+00:00'
+[2023-10-23T13:17:17.121+0000] {python.py:194} INFO - Done. Returned value was: None
+[2023-10-23T13:17:17.133+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=once_ingestion_gcs_dag, task_id=fetch_and_save_to_local_task, execution_date=20231022T000000, start_date=20231023T131150, end_date=20231023T131717
+[2023-10-23T13:17:17.184+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-10-23T13:17:17.224+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check
