@@ -34,35 +34,32 @@ with DAG(
     max_active_runs=1,
     tags=["daily-veneet-tori.fi"],
 ) as dag:
-  fetch_and_save_to_local_task = PythonOperator(
-    task_id = "fetch_and_save_to_local_task",
-    python_callable = fetch_all_and_save,
-    op_kwargs = {
-      "path": path_to_local_home,
-      "number_of_pages": 3
-    }
-  )
-  local_to_gcs_task = PythonOperator(
-    task_id = "local_to_gcs_task",
-    python_callable = upload_to_gcs,
-    op_kwargs = {
-      "bucket": BUCKET,
-      "object_name": f"secondhand-boats/{dataset_file}",
-      "local_file": f"{path_to_local_home}/{dataset_file}"
-    }
-  )
-  bigquery_external_table_task = BigQueryCreateExternalTableOperator(
-    task_id = "bigquery_external_table_task",
-    table_resource = {
-      "tableReference":{
-        "projectId": PROJECT_ID,
-        "datasetId": BIGQUERY_DATASET,
-        "tableId": "external_table",
-      },
-      "externalDataConfiguration":{
-        "sourceFormat":"PARQUET",
-        "sourceUris": [f"gs://{BUCKET}/secondhand-boats/{dataset_file}"]
-      }
-    }
-  )
-  fetch_and_save_to_local_task >> local_to_gcs_task >> bigquery_external_table_task
+    fetch_and_save_to_local_task = PythonOperator(
+        task_id="fetch_and_save_to_local_task",
+        python_callable=fetch_all_and_save,
+        op_kwargs={"path": path_to_local_home, "number_of_pages": 3},
+    )
+    local_to_gcs_task = PythonOperator(
+        task_id="local_to_gcs_task",
+        python_callable=upload_to_gcs,
+        op_kwargs={
+            "bucket": BUCKET,
+            "object_name": f"secondhand-boats/{dataset_file}",
+            "local_file": f"{path_to_local_home}/{dataset_file}",
+        },
+    )
+    bigquery_external_table_task = BigQueryCreateExternalTableOperator(
+        task_id="bigquery_external_table_task",
+        table_resource={
+            "tableReference": {
+                "projectId": PROJECT_ID,
+                "datasetId": BIGQUERY_DATASET,
+                "tableId": f"external_table_{current_date}",
+            },
+            "externalDataConfiguration": {
+                "sourceFormat": "PARQUET",
+                "sourceUris": [f"gs://{BUCKET}/secondhand-boats/{dataset_file}"],
+            },
+        },
+    )
+    fetch_and_save_to_local_task >> local_to_gcs_task >> bigquery_external_table_task
